@@ -5,9 +5,9 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr:navidad": "node dist/navidad/server/server.mjs"
+    "test": "ng test"
   },
   "private": true,
   "packageManager": "npm@11.17.0",

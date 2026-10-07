@@ -1,0 +1,13 @@
+/* Ajustes para un diseño humano, contemporáneo y limpio */
+:host {
+  display: block;
+}
+
+input, select, textarea {
+  transition: all 0.2s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #0052FF !important;
+  box-shadow: 0 0 0 3px rgba(0, 82, 255, 0.15) !important;
+}

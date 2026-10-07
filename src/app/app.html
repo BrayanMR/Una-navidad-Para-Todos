@@ -1,344 +1,989 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<div class="relative w-full min-h-screen bg-white text-slate-900 font-sans overflow-x-hidden">
 
-<style>
-  :host {
-    --bright-blue: oklch(51.01% 0.274 263.83);
-    --electric-violet: oklch(53.18% 0.28 296.97);
-    --french-violet: oklch(47.66% 0.246 305.88);
-    --vivid-pink: oklch(69.02% 0.277 332.77);
-    --hot-red: oklch(61.42% 0.238 15.34);
-    --orange-red: oklch(63.32% 0.24 31.68);
+  <!-- BARRA DE NAVEGACIÓN FLOTANTE PREMIUM Y ELEGANTE -->
+  <header 
+    class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-3 sm:py-4 px-4 sm:px-6 lg:px-8"
+  >
+    <div 
+      class="max-w-7xl mx-auto rounded-full transition-all duration-300 px-5 sm:px-7 h-16 sm:h-20 flex items-center justify-between"
+      [class.bg-white/90]="navScrolled()"
+      [class.backdrop-blur-xl]="navScrolled()"
+      [class.shadow-lg]="navScrolled()"
+      [class.shadow-slate-900/5]="navScrolled()"
+      [class.border]="navScrolled()"
+      [class.border-slate-200/80]="navScrolled()"
+      [class.bg-white/80]="!navScrolled()"
+      [class.backdrop-blur-md]="!navScrolled()"
+      [class.border]="!navScrolled()"
+      [class.border-slate-100]="!navScrolled()"
+    >
+      
+      <!-- Identidad Oficial con el Árbol Emblemático -->
+      <a href="#" (click)="scrollToSection('hero')" class="flex items-center gap-3.5 no-underline group cursor-pointer">
+        <div class="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+          <svg class="w-full h-full" viewBox="0 0 140 120" fill="none">
+            <polygon points="70,4 74,13 83,14 77,21 78,30 70,26 62,30 63,21 57,14 66,13" fill="#FFD600" />
+            <path d="M 70 32 
+                     C 76 34, 80 37, 76 40
+                     C 68 43, 58 42, 61 47
+                     C 65 51, 85 47, 85 54
+                     C 85 59, 52 55, 54 62
+                     C 56 68, 92 63, 93 71
+                     C 94 78, 45 71, 46 80
+                     C 47 88, 102 82, 102 91
+                     C 102 99, 35 91, 36 101
+                     C 37 109, 114 103, 112 111
+                     C 110 115, 24 112, 26 116" 
+                  stroke="#0052FF" 
+                  stroke-width="7" 
+                  stroke-linecap="round" 
+                  stroke-linejoin="round" />
+          </svg>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-extrabold text-[#0052FF] text-base sm:text-lg tracking-tight leading-none group-hover:text-[#0038B8] transition-colors">
+            UNA NAVIDAD PARA TODOS
+          </span>
+          <span class="text-[10px] sm:text-[11px] font-bold text-[#E6007A] tracking-wider uppercase leading-tight mt-0.5">
+            SELAH × M180 × AMENIA
+          </span>
+        </div>
+      </a>
 
-    --gray-900: oklch(19.37% 0.006 300.98);
-    --gray-700: oklch(36.98% 0.014 302.71);
-    --gray-400: oklch(70.9% 0.015 304.04);
+      <!-- Menú Desktop Estilo Píldoras Modernas -->
+      <nav class="hidden lg:flex items-center gap-1.5 p-1.5 bg-slate-100/70 rounded-full border border-slate-200/60 text-xs sm:text-sm font-bold text-slate-600">
+        <button 
+          (click)="scrollToSection('proposito')" 
+          class="px-4 py-2 rounded-full hover:bg-white hover:text-[#0052FF] hover:shadow-sm transition-all cursor-pointer bg-transparent border-0 font-bold"
+        >
+          Propósito
+        </button>
+        <button 
+          (click)="scrollToSection('alianza')" 
+          class="px-4 py-2 rounded-full hover:bg-white hover:text-[#0052FF] hover:shadow-sm transition-all cursor-pointer bg-transparent border-0 font-bold"
+        >
+          Aliados & Fundaciones
+        </button>
+        <button 
+          (click)="scrollToSection('como-participar')" 
+          class="px-4 py-2 rounded-full hover:bg-white hover:text-[#0052FF] hover:shadow-sm transition-all cursor-pointer bg-transparent border-0 font-bold"
+        >
+          Cómo Participar
+        </button>
+        <button 
+          (click)="scrollToSection('territorio')" 
+          class="px-4 py-2 rounded-full hover:bg-white hover:text-[#0052FF] hover:shadow-sm transition-all cursor-pointer bg-transparent border-0 font-bold"
+        >
+          Funza y Mosquera
+        </button>
+      </nav>
 
-    --red-to-pink-to-purple-vertical-gradient: linear-gradient(
-      180deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
+      <!-- Botón de Acción Principal Desktop (Oculto en móvil) -->
+      <div class="flex items-center gap-3">
+        <button 
+          (click)="openFormWithOption('donar')" 
+          class="hidden lg:inline-flex btn-brand-primary text-xs sm:text-sm py-2.5 px-5 sm:px-6 shadow-md shadow-blue-500/25 hover:shadow-blue-500/40 cursor-pointer"
+        >
+          <span>Quiero Donar</span>
+          <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </button>
 
-    --red-to-pink-to-purple-horizontal-gradient: linear-gradient(
-      90deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
+        <!-- Botón Menú Móvil -->
+        <button 
+          (click)="toggleMobileMenu()" 
+          class="lg:hidden w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 hover:text-[#0052FF] flex items-center justify-center transition-all focus:outline-none cursor-pointer"
+          aria-label="Abrir menú"
+        >
+          <svg *ngIf="!mobileMenuOpen()" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg *ngIf="mobileMenuOpen()" class="w-5 h-5 text-[#E6007A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
 
-    --pill-accent: var(--bright-blue);
-
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    display: block;
-    height: 100dvh;
-  }
-
-  h1 {
-    font-size: 3.125rem;
-    color: var(--gray-900);
-    font-weight: 500;
-    line-height: 100%;
-    letter-spacing: -0.125rem;
-    margin: 0;
-    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-  }
-
-  p {
-    margin: 0;
-    color: var(--gray-700);
-  }
-
-  main {
-    width: 100%;
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    box-sizing: inherit;
-    position: relative;
-  }
-
-  .angular-logo {
-    max-width: 9.2rem;
-  }
-
-  .content {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 700px;
-    margin-bottom: 3rem;
-  }
-
-  .content h1 {
-    margin-top: 1.75rem;
-  }
-
-  .content p {
-    margin-top: 1.5rem;
-  }
-
-  .divider {
-    width: 1px;
-    background: var(--red-to-pink-to-purple-vertical-gradient);
-    margin-inline: 0.5rem;
-  }
-
-  .pill-group {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    flex-wrap: wrap;
-    gap: 1.25rem;
-  }
-
-  .pill {
-    display: flex;
-    align-items: center;
-    --pill-accent: var(--bright-blue);
-    background: color-mix(in srgb, var(--pill-accent) 5%, transparent);
-    color: var(--pill-accent);
-    padding-inline: 0.75rem;
-    padding-block: 0.375rem;
-    border-radius: 2.75rem;
-    border: 0;
-    transition: background 0.3s ease;
-    font-family: var(--inter-font);
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.4rem;
-    letter-spacing: -0.00875rem;
-    text-decoration: none;
-    white-space: nowrap;
-  }
-
-  .pill:hover {
-    background: color-mix(in srgb, var(--pill-accent) 15%, transparent);
-  }
-
-  .pill-group .pill:nth-child(6n + 1) {
-    --pill-accent: var(--bright-blue);
-  }
-  .pill-group .pill:nth-child(6n + 2) {
-    --pill-accent: var(--electric-violet);
-  }
-  .pill-group .pill:nth-child(6n + 3) {
-    --pill-accent: var(--french-violet);
-  }
-
-  .pill-group .pill:nth-child(6n + 4),
-  .pill-group .pill:nth-child(6n + 5),
-  .pill-group .pill:nth-child(6n + 6) {
-    --pill-accent: var(--hot-red);
-  }
-
-  .pill-group svg {
-    margin-inline-start: 0.25rem;
-  }
-
-  .social-links {
-    display: flex;
-    align-items: center;
-    gap: 0.73rem;
-    margin-top: 1.5rem;
-  }
-
-  .social-links path {
-    transition: fill 0.3s ease;
-    fill: var(--gray-400);
-  }
-
-  .social-links a:hover svg path {
-    fill: var(--gray-900);
-  }
-
-  @media screen and (max-width: 650px) {
-    .content {
-      flex-direction: column;
-      width: max-content;
-    }
-
-    .divider {
-      height: 1px;
-      width: 100%;
-      background: var(--red-to-pink-to-purple-horizontal-gradient);
-      margin-block: 1.5rem;
-    }
-  }
-</style>
-
-<main class="main">
-  <div class="content">
-    <div class="left-side">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 982 239"
-        fill="none"
-        class="angular-logo"
-      >
-        <g clip-path="url(#a)">
-          <path
-            fill="url(#b)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-          <path
-            fill="url(#c)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-        </g>
-        <defs>
-          <radialGradient
-            id="c"
-            cx="0"
-            cy="0"
-            r="1"
-            gradientTransform="rotate(118.122 171.182 60.81) scale(205.794)"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#FF41F8" />
-            <stop offset=".707" stop-color="#FF41F8" stop-opacity=".5" />
-            <stop offset="1" stop-color="#FF41F8" stop-opacity="0" />
-          </radialGradient>
-          <linearGradient
-            id="b"
-            x1="0"
-            x2="982"
-            y1="192"
-            y2="192"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#F0060B" />
-            <stop offset="0" stop-color="#F0070C" />
-            <stop offset=".526" stop-color="#CC26D5" />
-            <stop offset="1" stop-color="#7702FF" />
-          </linearGradient>
-          <clipPath id="a"><path fill="#fff" d="M0 0h982v239H0z" /></clipPath>
-        </defs>
-      </svg>
-      <h1>Hello, {{ title() }}</h1>
-      <p>Congratulations! Your app is running. 🎉</p>
     </div>
-    <div class="divider" role="separator" aria-label="Divider"></div>
-    <div class="right-side">
-      <div class="pill-group">
-        @for (item of [
-          { title: 'Explore the Docs', link: 'https://angular.dev' },
-          { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' },
-          { title: 'Prompt and best practices for AI', link: 'https://angular.dev/ai/develop-with-ai'},
-          { title: 'CLI Docs', link: 'https://angular.dev/tools/cli' },
-          { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
-          { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
-        ]; track item.title) {
-          <a
-            class="pill"
-            [href]="item.link"
-            target="_blank"
-            rel="noopener"
-          >
-            <span>{{ item.title }}</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="14"
-              viewBox="0 -960 960 960"
-              width="14"
-              fill="currentColor"
+
+    <!-- Menú Desplegable Móvil Premium (Con animación fluida de entrada) -->
+    <div 
+      *ngIf="mobileMenuOpen()" 
+      class="lg:hidden mt-3 max-w-7xl mx-auto bg-white/95 backdrop-blur-2xl rounded-3xl p-6 border border-slate-200/90 shadow-2xl shadow-blue-900/10 transition-all duration-300 animate-menu-drop"
+    >
+      <div class="space-y-1.5 pb-5">
+        
+        <button 
+          (click)="scrollToSection('proposito')" 
+          class="w-full flex items-center justify-between p-3.5 rounded-2xl hover:bg-blue-50/70 text-slate-800 hover:text-[#0052FF] transition-all cursor-pointer font-bold text-sm bg-transparent border-0 text-left"
+        >
+          <div class="flex items-center gap-3">
+            <span class="w-2 h-2 rounded-full bg-[#0052FF]"></span>
+            <span>Propósito de la Campaña</span>
+          </div>
+          <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+
+        <button 
+          (click)="scrollToSection('alianza')" 
+          class="w-full flex items-center justify-between p-3.5 rounded-2xl hover:bg-pink-50/70 text-slate-800 hover:text-[#E6007A] transition-all cursor-pointer font-bold text-sm bg-transparent border-0 text-left"
+        >
+          <div class="flex items-center gap-3">
+            <span class="w-2 h-2 rounded-full bg-[#E6007A]"></span>
+            <span>Aliados & Fundaciones</span>
+          </div>
+          <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+
+        <button 
+          (click)="scrollToSection('como-participar')" 
+          class="w-full flex items-center justify-between p-3.5 rounded-2xl hover:bg-amber-50/70 text-slate-800 hover:text-amber-700 transition-all cursor-pointer font-bold text-sm bg-transparent border-0 text-left"
+        >
+          <div class="flex items-center gap-3">
+            <span class="w-2 h-2 rounded-full bg-[#FFD600]"></span>
+            <span>Opciones de Participación</span>
+          </div>
+          <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+
+        <button 
+          (click)="scrollToSection('territorio')" 
+          class="w-full flex items-center justify-between p-3.5 rounded-2xl hover:bg-cyan-50/70 text-slate-800 hover:text-teal-700 transition-all cursor-pointer font-bold text-sm bg-transparent border-0 text-left"
+        >
+          <div class="flex items-center gap-3">
+            <span class="w-2 h-2 rounded-full bg-[#00D2D3]"></span>
+            <span>Funza y Mosquera</span>
+          </div>
+          <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+
+      </div>
+
+      <!-- CTA Móvil con Micro-Animación de Pulso Sutil -->
+      <div class="pt-4 border-t border-slate-100 flex flex-col gap-2.5">
+        <button 
+          (click)="openFormWithOption('donar')" 
+          class="btn-brand-primary w-full py-3.5 text-sm font-bold justify-center shadow-lg shadow-blue-500/25 animate-cta-pulse cursor-pointer"
+        >
+          <span>Quiero Donar Ahora</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </button>
+
+        <div class="text-center pt-1">
+          <span class="text-[11px] font-bold text-slate-400 uppercase tracking-widest">
+            SELAH × M180’ × AMENIA
+          </span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- HERO PRINCIPAL CON EL ÁRBOL DEL AFICHE Y ELEMENTOS ACTIVOS AL SCROLL -->
+  <section id="hero" class="pt-28 pb-16 sm:pt-36 sm:pb-24 overflow-hidden relative bg-white">
+    
+    <!-- Formas orgánicas con sutil parallax reactivo al scroll -->
+    <div 
+      class="absolute top-12 right-[-20px] w-64 h-80 bg-[#0052FF] rounded-bl-[140px] opacity-90 hidden lg:block pointer-events-none transition-transform duration-700 ease-out"
+      [style.transform]="'translateY(' + (scrollY() * -0.15) + 'px)'"
+    ></div>
+
+    <div 
+      class="absolute top-8 right-36 w-36 h-36 bg-[#E6007A] rounded-full opacity-90 hidden lg:block pointer-events-none transition-transform duration-700 ease-out"
+      [style.transform]="'translateY(' + (scrollY() * -0.22) + 'px)'"
+    ></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Columna de Texto Principal -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          
+
+          <h1 class="text-4xl sm:text-6xl md:text-7xl font-black text-[#0052FF] tracking-tight leading-[1.05]">
+            UNA NAVIDAD <br>
+            <span class="text-[#0052FF]">PARA TODOS</span>
+          </h1>
+
+          <p class="text-lg sm:text-2xl font-bold text-slate-800 max-w-xl mx-auto lg:mx-0">
+            Un regalo puede generar una sonrisa. <br>
+            <span class="text-[#E6007A]">Una acción puede transformar una vida.</span>
+          </p>
+
+          <p class="text-sm sm:text-base text-slate-600 font-normal max-w-lg mx-auto lg:mx-0 leading-relaxed">
+            Llevamos regalos y esperanza a niños, jóvenes y pacientes oncológicos de <strong>Funza y Mosquera</strong> en una alianza de <strong>SELAH, M180’ y AMENIA</strong>.
+          </p>
+
+          <!-- Botones de Acción Directa Premium -->
+          <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5">
+            <button 
+              (click)="openFormWithOption('donar')" 
+              class="group w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-[#0052FF] hover:bg-[#0038B8] text-white font-bold text-sm sm:text-base py-3.5 px-7 rounded-2xl shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer border-0"
             >
-              <path
-                d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"
-              />
-            </svg>
-          </a>
-        }
+              <span>Quiero Donar un Regalo</span>
+              <div class="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors">
+                <svg class="w-4 h-4 text-white group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </div>
+            </button>
+
+            <button 
+              (click)="scrollToSection('como-participar')" 
+              class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-50 hover:bg-slate-100/90 text-slate-800 hover:text-[#0052FF] font-bold text-sm sm:text-base py-3.5 px-6 rounded-2xl border border-slate-200 hover:border-slate-300 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
+            >
+              <span>¿Cómo participar?</span>
+              <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Indicador de Metas -->
+          <div class="pt-6 border-t border-slate-100 grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0 text-center">
+            <div class="p-3 bg-slate-50/80 rounded-2xl border border-slate-100">
+              <span class="block text-2xl sm:text-3xl font-black text-[#0052FF]">+1.200</span>
+              <span class="text-xs font-bold text-slate-500">Regalos Meta</span>
+            </div>
+            <div class="p-3 bg-slate-50/80 rounded-2xl border border-slate-100">
+              <span class="block text-2xl sm:text-3xl font-black text-[#E6007A]">2</span>
+              <span class="text-xs font-bold text-slate-500">Municipios</span>
+            </div>
+            <div class="p-3 bg-slate-50/80 rounded-2xl border border-slate-100">
+              <span class="block text-2xl sm:text-3xl font-black text-amber-500">100%</span>
+              <span class="text-xs font-bold text-slate-500">Servicio</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Columna Visual: El Árbol Oficial Dibujado con Microanimación -->
+        <div class="lg:col-span-5 flex justify-center">
+          
+          <div class="w-full max-w-md bg-white rounded-3xl p-8 sm:p-10 border-2 border-slate-100 shadow-2xl relative overflow-hidden flex flex-col items-center text-center animate-float">
+            
+            <!-- Estrella Amarilla cercana a la copa del árbol -->
+            <div class="w-14 h-14 text-[#FFD600] -mb-8 relative z-10 flex items-center justify-center animate-star-slow">
+              <svg class="w-12 h-12 fill-current drop-shadow-sm" viewBox="0 0 24 24">
+                <path d="M12 2l2.6 6.3 6.8.5-5.2 4.5 1.6 6.7-5.8-3.6-5.8 3.6 1.6-6.7-5.2-4.5 6.8-.5L12 2z"/>
+              </svg>
+            </div>
+
+            <!-- Trazado Vectorial Oficial del Árbol de Navidad (Simétrico bilateral continuo) -->
+            <div class="w-72 h-56 relative mb-4 flex items-center justify-center">
+              <svg class="w-full h-full text-[#0052FF]" viewBox="0 0 140 100" fill="none">
+                <!-- Trazado oscilante completo de punta a base que cubre ambos extremos izquierdo y derecho -->
+                <path 
+                  class="tree-ribbon-path"
+                  d="M 70 8 
+                     C 76 10, 80 14, 76 17
+                     C 68 20, 58 19, 61 24
+                     C 65 28, 85 24, 85 31
+                     C 85 36, 52 32, 54 40
+                     C 56 46, 92 41, 93 49
+                     C 94 56, 45 49, 46 59
+                     C 47 67, 102 61, 102 70
+                     C 102 78, 35 70, 36 81
+                     C 37 90, 114 83, 112 92
+                     C 110 97, 24 93, 26 98" 
+                  stroke="currentColor" 
+                  stroke-width="4.5" 
+                  stroke-linecap="round" 
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+
+            <span class="text-xs uppercase tracking-widest font-black text-[#E6007A] mb-1">Iniciativa Social</span>
+            <h3 class="text-2xl font-black text-[#0052FF] mb-6">UNA NAVIDAD PARA TODOS</h3>
+
+            <!-- Composición Gráfica de Regalos de Colores en la Base -->
+            <div class="flex items-end justify-center gap-3 w-full pt-4 border-t border-slate-100">
+              
+              <!-- Regalo Azul con Tapa Cyan -->
+              <div class="w-16 h-20 bg-[#0052FF] rounded-t-xl relative flex items-center justify-center shadow-md">
+                <div class="absolute -top-6 w-12 h-12 bg-[#00D2D3] rounded-full flex items-center justify-center text-white shadow-sm">
+                  <div class="w-3.5 h-3.5 bg-white rounded-full"></div>
+                </div>
+                <div class="w-full h-2 bg-[#E6007A] absolute"></div>
+                <div class="h-full w-2 bg-[#E6007A] absolute"></div>
+              </div>
+
+              <!-- Regalo Amarillo -->
+              <div class="w-12 h-14 bg-[#FFD600] rounded-t-lg relative flex items-center justify-center shadow-md">
+                <div class="w-full h-1.5 bg-white absolute"></div>
+                <div class="h-full w-1.5 bg-white absolute"></div>
+              </div>
+
+              <!-- Estrella Magenta -->
+              <div class="w-14 h-14 text-[#E6007A] flex items-center justify-center">
+                <svg class="w-12 h-12 fill-current" viewBox="0 0 24 24">
+                  <path d="M12 0l3 9h9l-7.5 5.5 3 9.5-7.5-6-7.5 6 3-9.5L0 9h9z"/>
+                </svg>
+              </div>
+
+              <!-- Regalo Azul con Cinta Blanca -->
+              <div class="w-16 h-20 bg-[#0052FF] rounded-t-xl relative flex items-center justify-center shadow-md">
+                <div class="w-full h-2 bg-white absolute"></div>
+                <div class="h-full w-2 bg-white absolute"></div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
       </div>
-      <div class="social-links">
-        <a
-          href="https://github.com/angular/angular"
-          aria-label="Github"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="25"
-            height="24"
-            viewBox="0 0 25 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Github"
-          >
-            <path
-              d="M12.3047 0C5.50634 0 0 5.50942 0 12.3047C0 17.7423 3.52529 22.3535 8.41332 23.9787C9.02856 24.0946 9.25414 23.7142 9.25414 23.3871C9.25414 23.0949 9.24389 22.3207 9.23876 21.2953C5.81601 22.0377 5.09414 19.6444 5.09414 19.6444C4.53427 18.2243 3.72524 17.8449 3.72524 17.8449C2.61064 17.082 3.81137 17.0973 3.81137 17.0973C5.04697 17.1835 5.69604 18.3647 5.69604 18.3647C6.79321 20.2463 8.57636 19.7029 9.27978 19.3881C9.39052 18.5924 9.70736 18.0499 10.0591 17.7423C7.32641 17.4347 4.45429 16.3765 4.45429 11.6618C4.45429 10.3185 4.9311 9.22133 5.72065 8.36C5.58222 8.04931 5.16694 6.79833 5.82831 5.10337C5.82831 5.10337 6.85883 4.77319 9.2121 6.36459C10.1965 6.09082 11.2424 5.95546 12.2883 5.94931C13.3342 5.95546 14.3801 6.09082 15.3644 6.36459C17.7023 4.77319 18.7328 5.10337 18.7328 5.10337C19.3942 6.79833 18.9789 8.04931 18.8559 8.36C19.6403 9.22133 20.1171 10.3185 20.1171 11.6618C20.1171 16.3888 17.2409 17.4296 14.5031 17.7321C14.9338 18.1012 15.3337 18.8559 15.3337 20.0084C15.3337 21.6552 15.3183 22.978 15.3183 23.3779C15.3183 23.7009 15.5336 24.0854 16.1642 23.9623C21.0871 22.3484 24.6094 17.7341 24.6094 12.3047C24.6094 5.50942 19.0999 0 12.3047 0Z"
-            />
-          </svg>
-        </a>
-        <a
-          href="https://x.com/angular"
-          aria-label="X"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="X"
-          >
-            <path
-              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-            />
-          </svg>
-        </a>
-        <a
-          href="https://www.youtube.com/channel/UCbn1OgGei-DV7aSRo_HaAiw"
-          aria-label="Youtube"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="29"
-            height="20"
-            viewBox="0 0 29 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Youtube"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M27.4896 1.52422C27.9301 1.96749 28.2463 2.51866 28.4068 3.12258C29.0004 5.35161 29.0004 10 29.0004 10C29.0004 10 29.0004 14.6484 28.4068 16.8774C28.2463 17.4813 27.9301 18.0325 27.4896 18.4758C27.0492 18.9191 26.5 19.2389 25.8972 19.4032C23.6778 20 14.8068 20 14.8068 20C14.8068 20 5.93586 20 3.71651 19.4032C3.11363 19.2389 2.56449 18.9191 2.12405 18.4758C1.68361 18.0325 1.36732 17.4813 1.20683 16.8774C0.613281 14.6484 0.613281 10 0.613281 10C0.613281 10 0.613281 5.35161 1.20683 3.12258C1.36732 2.51866 1.68361 1.96749 2.12405 1.52422C2.56449 1.08095 3.11363 0.76113 3.71651 0.596774C5.93586 0 14.8068 0 14.8068 0C14.8068 0 23.6778 0 25.8972 0.596774C26.5 0.76113 27.0492 1.08095 27.4896 1.52422ZM19.3229 10L11.9036 5.77905V14.221L19.3229 10Z"
-            />
-          </svg>
-        </a>
-      </div>
+
     </div>
-  </div>
-</main>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+  </section>
 
 
-<router-outlet />
+  <!-- SECCIÓN DE FUNDACIONES ARTICULADORAS CON SUS LOGOS REALES -->
+  <section id="alianza" class="py-14 bg-slate-50/80 border-y border-slate-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      
+      <span class="text-xs uppercase tracking-widest font-black text-slate-500 block mb-2">
+        Articulado y Liderado Por
+      </span>
+      <h3 class="text-xl sm:text-2xl font-black text-slate-800 mb-8">
+        La unión de tres organizaciones con un solo propósito
+      </h3>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 items-center justify-center max-w-4xl mx-auto">
+        
+        <!-- Logo SELAH -->
+        <div class="p-6 bg-white rounded-2xl border border-slate-200/80 shadow-sm flex flex-col items-center justify-center h-32 hover:border-[#0052FF] transition-colors group">
+          <img 
+            src="images/selah.png" 
+            alt="Logo Fundación SELAH" 
+            class="max-h-16 max-w-[180px] object-contain group-hover:scale-105 transition-transform"
+          />
+        </div>
+
+        <!-- Logo M180' -->
+        <div class="p-6 bg-white rounded-2xl border border-slate-200/80 shadow-sm flex flex-col items-center justify-center h-32 hover:border-[#0052FF] transition-colors group">
+          <img 
+            src="images/m180.png" 
+            alt="Logo M180'" 
+            class="max-h-16 max-w-[180px] object-contain group-hover:scale-105 transition-transform"
+          />
+        </div>
+
+        <!-- Logo AMENIA -->
+        <div class="p-6 bg-white rounded-2xl border border-slate-200/80 shadow-sm flex flex-col items-center justify-center h-32 hover:border-[#0052FF] transition-colors group">
+          <img 
+            src="images/amenia.png" 
+            alt="Logo AMENIA" 
+            class="max-h-16 max-w-[180px] object-contain group-hover:scale-105 transition-transform"
+          />
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- PROPÓSITO DIRECTO -->
+  <section id="proposito" class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      
+      <span class="badge-brand mb-3">Enfoque Humano</span>
+      
+      <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mb-6">
+        ¿Por qué donar en esta campaña?
+      </h2>
+
+      <p class="text-lg text-slate-600 leading-relaxed font-normal max-w-3xl mx-auto mb-10">
+        En Funza y Mosquera, cientos de niños y niñas esperan con ilusión un detalle en esta época. Además, priorizamos el acompañamiento a <strong>pequeños pacientes oncológicos</strong>, para quienes un juguete nuevo o un kit pedagógico representa una inyección de ánimo y esperanza.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+        
+        <div class="p-6 bg-slate-50/70 rounded-2xl border border-slate-200/80 interactive-card">
+          <div class="w-10 h-10 rounded-xl bg-blue-100 text-[#0052FF] flex items-center justify-center font-black mb-4">
+            01
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2">100% Regalos Nuevos</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Garantizamos dignidad. Cada detalle entregado es nuevo, empacado con amor y adecuado para la edad del menor.
+          </p>
+        </div>
+
+        <div class="p-6 bg-slate-50/70 rounded-2xl border border-slate-200/80 interactive-card">
+          <div class="w-10 h-10 rounded-xl bg-pink-100 text-[#E6007A] flex items-center justify-center font-black mb-4">
+            02
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2">Población Priorizada</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Focalizado en sectores vulnerables de Funza y Mosquera, y niños en tratamiento médico oncológico.
+          </p>
+        </div>
+
+        <div class="p-6 bg-slate-50/70 rounded-2xl border border-slate-200/80 interactive-card">
+          <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-black mb-4">
+            03
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2">Entrega Transparente</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Cada donante recibe confirmación y evidencias del momento de entrega organizado por SELAH, M180' y AMENIA.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- CÓMO PARTICIPAR: 4 OPCIONES DIRECTAS -->
+  <section id="como-participar" class="py-20 bg-slate-50/70 border-t border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="badge-brand mb-3">Participación</span>
+        <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mb-4">
+          Elige cómo quieres sumarte
+        </h2>
+        <p class="text-slate-600 text-base">
+          Selecciona tu rol y te llevaremos directamente al formulario preparado para ti.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div 
+          *ngFor="let opt of options" 
+          class="p-7 rounded-2xl border-2 transition-all flex flex-col justify-between interactive-card bg-white"
+          [ngClass]="[opt.color, opt.borderHover]"
+        >
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider block mb-3" [ngClass]="opt.textColor">
+              {{ opt.badge }}
+            </span>
+            <h3 class="text-xl font-black text-slate-900 mb-3">
+              {{ opt.title }}
+            </h3>
+            <p class="text-sm text-slate-600 leading-relaxed mb-6 font-normal">
+              {{ opt.description }}
+            </p>
+          </div>
+
+          <button 
+            (click)="openFormWithOption(opt.id)"
+            class="w-full py-3 px-4 rounded-xl font-bold text-sm bg-white text-slate-900 border border-slate-200 hover:border-slate-400 transition-colors shadow-sm cursor-pointer flex items-center justify-center gap-2"
+          >
+            <span>Seleccionar y Continuar</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- TERRITORIO: MAPA INTERACTIVO DE FUNZA Y MOSQUERA -->
+  <section id="territorio" class="py-20 bg-white border-t border-slate-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Encabezado de la Sección -->
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="badge-brand mb-3">Territorio de Impacto</span>
+        <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mb-3">
+          Funza y Mosquera Unidos
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+          Puntos de acopio, acompañamiento y entrega coordinada en Sabana de Occidente.
+        </p>
+      </div>
+
+      <div class="bg-gradient-to-br from-blue-50/40 via-white to-pink-50/40 rounded-3xl p-6 sm:p-10 border border-slate-200/80 shadow-xl overflow-hidden">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <!-- Columna Información y Selector de Puntos (5 columnas) -->
+          <div class="lg:col-span-5 space-y-6">
+            
+            <div class="space-y-3">
+              <span class="text-xs font-black uppercase tracking-wider text-[#0052FF] block">
+                Sabana de Occidente, Cundinamarca
+              </span>
+              <h3 class="text-2xl sm:text-3xl font-black text-slate-900 leading-snug">
+                Presencia Comunitaria en Dos Municipios
+              </h3>
+              <p class="text-slate-600 text-sm leading-relaxed">
+                Articulamos con juntas barriales, instituciones educativas y comités de salud para llevar regalos y espacios lúdicos a los sectores priorizados.
+              </p>
+            </div>
+
+            <!-- Tarjetas de Municipios -->
+            <div class="space-y-3">
+              
+              <div class="p-4 rounded-2xl bg-white border border-blue-200 shadow-sm flex items-start gap-3.5 hover:border-[#0052FF] transition-colors">
+                <div class="w-9 h-9 rounded-xl bg-blue-100 text-[#0052FF] flex items-center justify-center shrink-0 mt-0.5">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-900 text-sm">Municipio de Funza</h4>
+                  <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                    Sectores urbanos y rurales priorizados, con centros comunitarios de recepción infantil.
+                  </p>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-white border border-pink-200 shadow-sm flex items-start gap-3.5 hover:border-[#E6007A] transition-colors">
+                <div class="w-9 h-9 rounded-xl bg-pink-100 text-[#E6007A] flex items-center justify-center shrink-0 mt-0.5">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-900 text-sm">Municipio de Mosquera</h4>
+                  <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                    Puntos de acopio con apoyo de líderes juveniles, colegios y comunidad parroquial.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Botón de Acción -->
+            <div class="pt-2">
+              <button (click)="scrollToSection('formulario')" class="btn-brand-primary w-full text-xs sm:text-sm py-3 justify-center shadow-md">
+                <span>Inscribir Donación para estos Municipios</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </button>
+            </div>
+
+          </div>
+
+          <!-- Columna Mapa Oficial de Sabana de Occidente (7 columnas) -->
+          <div class="lg:col-span-7">
+            <div class="rounded-3xl overflow-hidden border border-slate-200/90 shadow-xl bg-white p-6 sm:p-8 relative">
+              
+              <!-- Encabezado de la Tarjeta del Mapa -->
+              <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-100">
+                <div class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+                  <span class="font-extrabold text-slate-800 text-xs sm:text-sm">Sabana de Occidente • Municipios Foco</span>
+                </div>
+                <span class="text-[11px] font-bold text-[#0052FF] bg-blue-50 px-2.5 py-1 rounded-full">
+                  Funza & Mosquera
+                </span>
+              </div>
+
+              <!-- Contenedor del Mapa Ilustrado -->
+              <div class="relative w-full flex items-center justify-center p-2 bg-slate-50/50 rounded-2xl border border-slate-100">
+                <img 
+                  src="images/mapa-funza-mosquera.jpg" 
+                  alt="Mapa de Mosquera y Funza con corazones — Territorio de la campaña" 
+                  class="max-h-[420px] sm:max-h-[500px] w-auto object-contain drop-shadow-xl hover:scale-[1.02] transition-transform duration-300 rounded-xl"
+                />
+
+              </div>
+
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- FORMULARIO OFICIAL DE DONACIÓN Y REGISTRO (DIRECTO, SIN WHATSAPP) -->
+  <section id="formulario" class="py-24 bg-slate-50/70 border-t border-slate-100">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-10">
+        <span class="badge-brand mb-3">Registro Oficial</span>
+        <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mb-3">
+          Inscribe tu Donación
+        </h2>
+        <p class="text-slate-600 text-base">
+          Diligencia el formulario oficial. Tu registro llega directamente a los coordinadores de SELAH, M180' y AMENIA.
+        </p>
+      </div>
+
+      <!-- Tarjeta del Formulario -->
+      <div class="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-xl">
+        
+        <!-- Mensaje de Éxito al Enviar -->
+        <div *ngIf="formSubmitted()" class="text-center py-10 space-y-4">
+          <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-black text-slate-900">¡Donación Inscrita con Éxito!</h3>
+          <p class="text-slate-600 text-sm max-w-md mx-auto">
+            Muchas gracias, <strong>{{ formData.name }}</strong>. Hemos registrado tu intención de apoyo para <strong>{{ formData.municipality === 'funza' ? 'Funza' : 'Mosquera' }}</strong>. Te enviaremos los detalles y confirmación de recepción a tu correo <strong>{{ formData.email }}</strong>.
+          </p>
+          <div class="pt-4">
+            <button (click)="resetForm()" class="btn-brand-secondary text-sm py-2.5 px-6 cursor-pointer">
+              Registrar otra donación
+            </button>
+          </div>
+        </div>
+
+        <!-- Formulario Activo -->
+        <form *ngIf="!formSubmitted()" (ngSubmit)="submitDonationForm()" class="space-y-6">
+          
+          <!-- Tipo de Participación -->
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
+              Tipo de Participación
+            </label>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              <button 
+                type="button" 
+                (click)="formData.type = 'donar'"
+                class="py-2.5 px-3 rounded-xl text-xs font-bold border transition-all cursor-pointer"
+                [class.bg-[#0052FF]]="formData.type === 'donar'"
+                [class.text-white]="formData.type === 'donar'"
+                [class.border-[#0052FF]]="formData.type === 'donar'"
+                [class.bg-slate-50]="formData.type !== 'donar'"
+                [class.text-slate-700]="formData.type !== 'donar'"
+                [class.border-slate-200]="formData.type !== 'donar'"
+              >
+                Donar Regalos
+              </button>
+
+              <button 
+                type="button" 
+                (click)="formData.type = 'colegio'"
+                class="py-2.5 px-3 rounded-xl text-xs font-bold border transition-all cursor-pointer"
+                [class.bg-[#E6007A]]="formData.type === 'colegio'"
+                [class.text-white]="formData.type === 'colegio'"
+                [class.border-[#E6007A]]="formData.type === 'colegio'"
+                [class.bg-slate-50]="formData.type !== 'colegio'"
+                [class.text-slate-700]="formData.type !== 'colegio'"
+                [class.border-slate-200]="formData.type !== 'colegio'"
+              >
+                Colegio
+              </button>
+
+              <button 
+                type="button" 
+                (click)="formData.type = 'voluntario'"
+                class="py-2.5 px-3 rounded-xl text-xs font-bold border transition-all cursor-pointer"
+                [class.bg-[#FFD600]]="formData.type === 'voluntario'"
+                [class.text-slate-900]="formData.type === 'voluntario'"
+                [class.border-[#FFD600]]="formData.type === 'voluntario'"
+                [class.bg-slate-50]="formData.type !== 'voluntario'"
+                [class.text-slate-700]="formData.type !== 'voluntario'"
+                [class.border-slate-200]="formData.type !== 'voluntario'"
+              >
+                Voluntario
+              </button>
+
+              <button 
+                type="button" 
+                (click)="formData.type = 'empresa'"
+                class="py-2.5 px-3 rounded-xl text-xs font-bold border transition-all cursor-pointer"
+                [class.bg-slate-900]="formData.type === 'empresa'"
+                [class.text-white]="formData.type === 'empresa'"
+                [class.border-slate-900]="formData.type === 'empresa'"
+                [class.bg-slate-50]="formData.type !== 'empresa'"
+                [class.text-slate-700]="formData.type !== 'empresa'"
+                [class.border-slate-200]="formData.type !== 'empresa'"
+              >
+                Empresa
+              </button>
+            </div>
+          </div>
+
+          <!-- Campos de Contacto -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Nombre Completo / Institución *</label>
+              <input 
+                type="text" 
+                [(ngModel)]="formData.name" 
+                name="name" 
+                required 
+                placeholder="Ej. Andrés Martínez o Colegio San José"
+                class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#0052FF]"
+              />
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Correo Electrónico *</label>
+              <input 
+                type="email" 
+                [(ngModel)]="formData.email" 
+                name="email" 
+                required 
+                placeholder="tu@correo.com"
+                class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#0052FF]"
+              />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Teléfono Móvil *</label>
+              <input 
+                type="tel" 
+                [(ngModel)]="formData.phone" 
+                name="phone" 
+                required 
+                placeholder="300 123 4567"
+                class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#0052FF]"
+              />
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Municipio Preferido</label>
+              <select 
+                [(ngModel)]="formData.municipality" 
+                name="municipality"
+                class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#0052FF] bg-white"
+              >
+                <option value="funza">Funza</option>
+                <option value="mosquera">Mosquera</option>
+                <option value="ambos">Ambos / Indiferente</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Cantidad Estimada</label>
+              <select 
+                [(ngModel)]="formData.quantity" 
+                name="quantity"
+                class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#0052FF] bg-white"
+              >
+                <option value="1">1 Regalo</option>
+                <option value="2-5">2 a 5 Regalos</option>
+                <option value="6-20">6 a 20 Regalos</option>
+                <option value="mas20">Más de 20 Regalos</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Mensaje o Detalle Opcional</label>
+            <textarea 
+              rows="3" 
+              [(ngModel)]="formData.comments" 
+              name="comments"
+              placeholder="Indícanos si son juguetes para primera infancia, kits artísticos, o cualquier aclaración adicional..."
+              class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#0052FF]"
+            ></textarea>
+          </div>
+
+          <div class="pt-2">
+            <button 
+              type="submit" 
+              class="btn-brand-primary w-full justify-center text-base py-4 font-bold cursor-pointer"
+              [disabled]="!formData.name || !formData.email"
+            >
+              Completar Inscripción de Donación
+            </button>
+            <span class="block text-center text-xs text-slate-400 mt-2">
+              Tus datos son confidenciales y se usarán únicamente para coordinar la entrega de la campaña.
+            </span>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- FOOTER PREMIUM Y COMPLETO -->
+  <footer class="bg-slate-950 text-white pt-16 pb-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Fila Principal con Columnas de Contenido -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-850">
+        
+        <!-- Columna de Marca e Iniciativa (5 columnas) -->
+        <div class="lg:col-span-5 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 flex items-center justify-center bg-white rounded-xl p-1 shadow-md">
+              <svg class="w-full h-full" viewBox="0 0 140 120" fill="none">
+                <polygon points="70,4 74,13 83,14 77,21 78,30 70,26 62,30 63,21 57,14 66,13" fill="#FFD600" />
+                <path d="M 70 32 
+                         C 76 34, 80 37, 76 40
+                         C 68 43, 58 42, 61 47
+                         C 65 51, 85 47, 85 54
+                         C 85 59, 52 55, 54 62
+                         C 56 68, 92 63, 93 71
+                         C 94 78, 45 71, 46 80
+                         C 47 88, 102 82, 102 91
+                         C 102 99, 35 91, 36 101
+                         C 37 109, 114 103, 112 111
+                         C 110 115, 24 112, 26 116" 
+                      stroke="#0052FF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <div>
+              <span class="text-xl font-black text-white tracking-tight block leading-none">UNA NAVIDAD PARA TODOS</span>
+              <span class="text-xs text-[#00D2D3] font-bold uppercase tracking-wider mt-1 block">
+                Funza & Mosquera • Campaña 2026
+              </span>
+            </div>
+          </div>
+
+          <p class="text-sm text-slate-400 max-w-sm leading-relaxed">
+            Una iniciativa social dedicada a transformar la Navidad de cientos de niños, niñas y pacientes oncológicos en Sabana de Occidente.
+          </p>
+
+          <!-- Logos de Aliados en miniatura estilizada -->
+          <div class="pt-2 flex items-center gap-3">
+            <div class="bg-white/10 hover:bg-white/20 transition-colors p-2 rounded-xl flex items-center justify-center h-10 w-24">
+              <img src="images/selah.png" alt="Selah" class="max-h-6 max-w-full object-contain brightness-0 invert" />
+            </div>
+            <div class="bg-white/10 hover:bg-white/20 transition-colors p-2 rounded-xl flex items-center justify-center h-10 w-20">
+              <img src="images/m180.png" alt="M180" class="max-h-6 max-w-full object-contain brightness-0 invert" />
+            </div>
+            <div class="bg-white/10 hover:bg-white/20 transition-colors p-2 rounded-xl flex items-center justify-center h-10 w-20">
+              <img src="images/amenia.png" alt="Amenia" class="max-h-6 max-w-full object-contain brightness-0 invert" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Columna de Navegación Rápida (3 columnas) -->
+        <div class="lg:col-span-3 space-y-3">
+          <span class="text-xs uppercase font-black tracking-widest text-[#FFD600] block mb-3">
+            Navegación
+          </span>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li>
+              <button (click)="scrollToSection('proposito')" class="hover:text-white transition-colors cursor-pointer bg-transparent border-0 text-left p-0">
+                Propósito de la Campaña
+              </button>
+            </li>
+            <li>
+              <button (click)="scrollToSection('alianza')" class="hover:text-white transition-colors cursor-pointer bg-transparent border-0 text-left p-0">
+                Organizaciones Aliadas
+              </button>
+            </li>
+            <li>
+              <button (click)="scrollToSection('como-participar')" class="hover:text-white transition-colors cursor-pointer bg-transparent border-0 text-left p-0">
+                Opciones de Participación
+              </button>
+            </li>
+            <li>
+              <button (click)="scrollToSection('territorio')" class="hover:text-white transition-colors cursor-pointer bg-transparent border-0 text-left p-0">
+                Cobertura Funza y Mosquera
+              </button>
+            </li>
+            <li>
+              <button (click)="scrollToSection('formulario')" class="hover:text-[#00D2D3] font-bold transition-colors cursor-pointer bg-transparent border-0 text-left p-0">
+                Inscribir Donación Oficial
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Columna Redes Sociales Oficiales de Instagram (4 columnas) -->
+        <div class="lg:col-span-4 space-y-4">
+          <span class="text-xs uppercase font-black tracking-widest text-[#E6007A] block mb-2">
+            Sigue la Campaña en Instagram
+          </span>
+          <p class="text-xs text-slate-400">
+            Conoce el avance de recolección, historias y evidencias de entregas en nuestras cuentas oficiales:
+          </p>
+
+          <div class="space-y-2.5">
+            
+            <!-- Instagram M180 Mosquera -->
+            <a 
+              href="https://www.instagram.com/m180mosquera/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="flex items-center justify-between p-3 rounded-2xl bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-[#E6007A] transition-all group no-underline text-white"
+            >
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 flex items-center justify-center text-white">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.13-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                  </svg>
+                </div>
+                <div>
+                  <span class="text-xs font-bold text-white block">@m180mosquera</span>
+                  <span class="text-[10px] text-slate-400">Comunidad M180 Mosquera</span>
+                </div>
+              </div>
+              <svg class="w-4 h-4 text-slate-500 group-hover:text-white group-hover:translate-x-0.5 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+
+            <!-- Instagram SELAH Organización -->
+            <a 
+              href="https://www.instagram.com/selah_organizacion/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="flex items-center justify-between p-3 rounded-2xl bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-[#E6007A] transition-all group no-underline text-white"
+            >
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 flex items-center justify-center text-white">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.13-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                  </svg>
+                </div>
+                <div>
+                  <span class="text-xs font-bold text-white block">@selah_organizacion</span>
+                  <span class="text-[10px] text-slate-400">Organización SELAH</span>
+                </div>
+              </div>
+              <svg class="w-4 h-4 text-slate-500 group-hover:text-white group-hover:translate-x-0.5 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Barra de Copyright Inferior -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 text-center sm:text-left">
+        <div>
+          © 2026 Una Navidad para Todos.
+        </div>
+        <div class="flex items-center gap-4 text-[11px]">
+          <span>SELAH</span>
+          <span>•</span>
+          <span>M180’</span>
+          <span>•</span>
+          <span>AMENIA</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+</div>

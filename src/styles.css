@@ -1,1 +1,152 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --color-blue: #0052FF;
+  --color-darkblue: #0038B8;
+  --color-magenta: #E6007A;
+  --color-yellow: #FFD600;
+  --color-cyan: #00D2D3;
+  --color-text: #0F172A;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 110px;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  color: var(--color-text);
+  background-color: #FFFFFF;
+}
+
+/* Micro-animaciones orgánicas con scroll e interacción */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1.5deg);
+  }
+}
+
+@keyframes spinStar {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ribbonDraw {
+  0% {
+    stroke-dashoffset: 1200;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes menuSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes pulseSubtle {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 10px 25px -5px rgba(0, 82, 255, 0.4);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 16px 32px -5px rgba(0, 82, 255, 0.55);
+  }
+}
+
+.animate-menu-drop {
+  animation: menuSlideDown 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-cta-pulse {
+  animation: pulseSubtle 3s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: floatSlow 4s ease-in-out infinite;
+}
+
+.animate-star-slow {
+  animation: spinStar 28s linear infinite;
+}
+
+.tree-ribbon-path {
+  stroke-dasharray: 1200;
+  animation: ribbonDraw 2.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Botones y badges */
+.btn-brand-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  background-color: #0052FF;
+  color: #FFFFFF;
+  padding: 0.95rem 2rem;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 9999px;
+  border: none;
+  box-shadow: 0 10px 25px -5px rgba(0, 82, 255, 0.4);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.btn-brand-primary:hover {
+  background-color: #0038B8;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 14px 30px -5px rgba(0, 82, 255, 0.5);
+}
+
+.btn-brand-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #F8FAFC;
+  color: #0F172A;
+  padding: 0.95rem 2rem;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 9999px;
+  border: 1px solid #E2E8F0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-brand-secondary:hover {
+  background-color: #F1F5F9;
+  border-color: #CBD5E1;
+  transform: translateY(-2px);
+}
+
+/* Tarjetas interactivas que responden al hover */
+.interactive-card {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.interactive-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 35px -10px rgba(0, 82, 255, 0.12);
+}
