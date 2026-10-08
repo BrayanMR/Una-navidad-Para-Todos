@@ -1,5 +1,26 @@
 <div class="relative w-full min-h-screen bg-white text-slate-900 font-sans overflow-x-hidden">
 
+  <!-- FONDO AMBIENTAL PREMIUM 2026: Trama de puntos delicados + Orbes de luz atmosférica -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+    <!-- Trama sutil de puntos de fondo -->
+    <div class="absolute inset-0 ambient-dot-grid opacity-30"></div>
+
+    <!-- Círculo difuso 1: Superior Izquierdo (Cyan Turquesa AMENIA) -->
+    <div class="absolute -top-36 -left-36 w-[420px] h-[420px] sm:w-[540px] sm:h-[540px] bg-[#00D2D3]/12 rounded-full blur-[110px] animate-pulse-glow"></div>
+
+    <!-- Círculo difuso 2: Superior Derecho (Azul Eléctrico SELAH) -->
+    <div class="absolute top-1/4 -right-44 w-[400px] h-[400px] sm:w-[560px] sm:h-[560px] bg-[#0052FF]/10 rounded-full blur-[130px] animate-pulse-glow" style="animation-delay: 3s;"></div>
+
+    <!-- Círculo difuso 3: Lateral Centro Izquierdo (Rosa M180) -->
+    <div class="absolute top-1/2 -left-48 w-[360px] h-[360px] sm:w-[480px] sm:h-[480px] bg-[#E6007A]/08 rounded-full blur-[120px] animate-pulse-glow" style="animation-delay: 5s;"></div>
+
+    <!-- Círculo difuso 4: Lateral Inferior Derecho (Cyan Turquesa) -->
+    <div class="absolute bottom-1/4 -right-36 w-[420px] h-[420px] sm:w-[520px] sm:h-[520px] bg-[#00D2D3]/10 rounded-full blur-[120px] animate-pulse-glow" style="animation-delay: 2s;"></div>
+
+    <!-- Círculo difuso 5: Pie de Página Izquierdo (Azul Eléctrico) -->
+    <div class="absolute -bottom-24 -left-28 w-[400px] h-[400px] sm:w-[500px] sm:h-[500px] bg-[#0052FF]/08 rounded-full blur-[110px]"></div>
+  </div>
+
   <!-- BARRA DE NAVEGACIÓN FLOTANTE PREMIUM Y ELEGANTE -->
   <header 
     class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-3 sm:py-4 px-4 sm:px-6 lg:px-8"
@@ -210,8 +231,36 @@
 
 
   <!-- HERO PRINCIPAL CON EL ÁRBOL DEL AFICHE Y ELEMENTOS ACTIVOS AL SCROLL -->
-  <section id="hero" class="pt-28 pb-16 sm:pt-36 sm:pb-24 overflow-hidden relative bg-white">
+  <section id="hero" class="pt-28 pb-16 sm:pt-36 sm:pb-24 overflow-hidden relative bg-transparent">
     
+    <!-- Regalo decorativo flotante lateral izquierdo (Hero) -->
+    <div class="absolute left-2 lg:left-8 top-1/3 hidden md:flex flex-col items-center pointer-events-none select-none z-10 animate-float opacity-80 hover:opacity-100 transition-opacity">
+      <div class="relative w-14 h-14 lg:w-16 lg:h-16 drop-shadow-xl">
+        <div class="absolute inset-0 bg-[#00D2D3]/20 rounded-full blur-xl"></div>
+        <svg viewBox="0 0 80 80" class="w-full h-full relative" fill="none">
+          <defs>
+            <linearGradient id="heroGiftBox" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#0052FF" />
+              <stop offset="100%" stop-color="#0038B8" />
+            </linearGradient>
+            <linearGradient id="heroRibbon" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#00D2D3" />
+              <stop offset="100%" stop-color="#009EA0" />
+            </linearGradient>
+          </defs>
+          <ellipse cx="40" cy="74" rx="24" ry="4.5" fill="#0f172a" fill-opacity="0.08" />
+          <rect x="15" y="28" width="50" height="42" rx="10" fill="url(#heroGiftBox)" />
+          <rect x="11" y="21" width="58" height="11" rx="4" fill="#0038B8" />
+          <rect x="36" y="21" width="8" height="49" fill="url(#heroRibbon)" />
+          <rect x="15" y="44" width="50" height="8" fill="url(#heroRibbon)" />
+          <path d="M 40 21 C 32 10, 22 10, 24 18 C 26 23, 36 22, 40 21 Z" fill="url(#heroRibbon)" />
+          <path d="M 40 21 C 48 10, 58 10, 56 18 C 54 23, 44 22, 40 21 Z" fill="url(#heroRibbon)" />
+          <circle cx="40" cy="21" r="3" fill="#ffffff" />
+        </svg>
+      </div>
+      <div class="w-1.5 h-1.5 rounded-full bg-[#00D2D3] mt-2 opacity-60"></div>
+    </div>
+
     <!-- Formas orgánicas con sutil parallax reactivo al scroll -->
     <div 
       class="absolute top-12 right-[-20px] w-64 h-80 bg-[#0052FF] rounded-bl-[140px] opacity-90 hidden lg:block pointer-events-none transition-transform duration-700 ease-out"
@@ -430,8 +479,37 @@
 
 
   <!-- PROPÓSITO DIRECTO -->
-  <section id="proposito" class="py-20 bg-white">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+  <section id="proposito" class="relative py-20 bg-transparent overflow-hidden">
+    
+    <!-- Regalo decorativo flotante lateral derecho (Propósito) -->
+    <div class="absolute right-2 lg:right-8 top-1/4 hidden md:flex flex-col items-center pointer-events-none select-none z-10 animate-float-reverse opacity-80 hover:opacity-100 transition-opacity">
+      <div class="relative w-14 h-14 lg:w-16 lg:h-16 drop-shadow-xl">
+        <div class="absolute inset-0 bg-[#E6007A]/20 rounded-full blur-xl"></div>
+        <svg viewBox="0 0 80 80" class="w-full h-full relative" fill="none">
+          <defs>
+            <linearGradient id="propGiftBox" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#E6007A" />
+              <stop offset="100%" stop-color="#B80062" />
+            </linearGradient>
+            <linearGradient id="propRibbon" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#00D2D3" />
+              <stop offset="100%" stop-color="#009EA0" />
+            </linearGradient>
+          </defs>
+          <ellipse cx="40" cy="74" rx="24" ry="4.5" fill="#0f172a" fill-opacity="0.08" />
+          <rect x="16" y="30" width="48" height="40" rx="9" fill="url(#propGiftBox)" />
+          <rect x="12" y="23" width="56" height="11" rx="4" fill="#B80062" />
+          <rect x="36" y="23" width="8" height="47" fill="url(#propRibbon)" />
+          <rect x="16" y="45" width="48" height="8" fill="url(#propRibbon)" />
+          <path d="M 40 23 C 32 12, 22 12, 24 20 C 26 25, 36 24, 40 23 Z" fill="url(#propRibbon)" />
+          <path d="M 40 23 C 48 12, 58 12, 56 20 C 54 25, 44 24, 40 23 Z" fill="url(#propRibbon)" />
+          <circle cx="40" cy="23" r="3" fill="#ffffff" />
+        </svg>
+      </div>
+      <div class="w-1.5 h-1.5 rounded-full bg-[#E6007A] mt-2 opacity-60"></div>
+    </div>
+
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
       
       <span class="badge-brand mb-3">Enfoque Humano</span>
       
@@ -545,7 +623,35 @@
   <section id="pasos" class="relative py-24 bg-gradient-to-b from-white via-blue-50/20 to-white overflow-hidden border-t border-slate-100">
     <!-- Formas geométricas de color inspiradas en el afiche oficial -->
     <div class="absolute top-0 right-0 w-44 h-44 bg-[#E6007A] rounded-bl-[80px] opacity-90 hidden sm:block pointer-events-none"></div>
-    <div class="absolute -bottom-10 -left-10 w-48 h-48 bg-[#FFD600]/25 rounded-full blur-2xl pointer-events-none"></div>
+    <div class="absolute -bottom-10 -left-10 w-48 h-48 bg-[#00D2D3]/20 rounded-full blur-2xl pointer-events-none"></div>
+
+    <!-- Regalo decorativo flotante lateral izquierdo (Pasos) -->
+    <div class="absolute left-2 lg:left-6 top-1/3 hidden md:flex flex-col items-center pointer-events-none select-none z-10 animate-float-gentle opacity-80 hover:opacity-100 transition-opacity">
+      <div class="relative w-14 h-14 lg:w-16 lg:h-16 drop-shadow-xl">
+        <div class="absolute inset-0 bg-[#00D2D3]/25 rounded-full blur-xl"></div>
+        <svg viewBox="0 0 80 80" class="w-full h-full relative" fill="none">
+          <defs>
+            <linearGradient id="pasosGiftBox" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#00D2D3" />
+              <stop offset="100%" stop-color="#009EA0" />
+            </linearGradient>
+            <linearGradient id="pasosRibbon" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#0052FF" />
+              <stop offset="100%" stop-color="#0038B8" />
+            </linearGradient>
+          </defs>
+          <ellipse cx="40" cy="74" rx="24" ry="4.5" fill="#0f172a" fill-opacity="0.08" />
+          <rect x="15" y="28" width="50" height="42" rx="10" fill="url(#pasosGiftBox)" />
+          <rect x="11" y="21" width="58" height="11" rx="4" fill="#009EA0" />
+          <rect x="36" y="21" width="8" height="49" fill="url(#pasosRibbon)" />
+          <rect x="15" y="44" width="50" height="8" fill="url(#pasosRibbon)" />
+          <path d="M 40 21 C 32 10, 22 10, 24 18 C 26 23, 36 22, 40 21 Z" fill="url(#pasosRibbon)" />
+          <path d="M 40 21 C 48 10, 58 10, 56 18 C 54 23, 44 22, 40 21 Z" fill="url(#pasosRibbon)" />
+          <circle cx="40" cy="21" r="3" fill="#ffffff" />
+        </svg>
+      </div>
+      <div class="w-1.5 h-1.5 rounded-full bg-[#0052FF] mt-2 opacity-60"></div>
+    </div>
 
     <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       
@@ -610,23 +716,23 @@
         </div>
 
         <!-- Paso 3: Entrega -->
-        <div class="relative bg-white rounded-3xl p-8 border-2 border-amber-100/80 shadow-lg shadow-amber-500/5 hover:border-[#FFD600] transition-all group flex flex-col justify-between">
+        <div class="relative bg-white rounded-3xl p-8 border-2 border-teal-100/80 shadow-lg shadow-teal-500/5 hover:border-[#00D2D3] transition-all group flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-4">
-              <span class="text-5xl font-black text-[#FFD600]/30 group-hover:text-[#FFD600]/60 transition-colors">03</span>
-              <span class="w-11 h-11 rounded-2xl bg-amber-50 text-amber-800 flex items-center justify-center font-bold">
+              <span class="text-5xl font-black text-[#00D2D3]/30 group-hover:text-[#00D2D3]/60 transition-colors">03</span>
+              <span class="w-11 h-11 rounded-2xl bg-teal-50 text-teal-700 flex items-center justify-center font-bold">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V4m0 4h9m-9 0H3"/></svg>
               </span>
             </div>
-            <h3 class="text-2xl font-black text-amber-800 tracking-tight mb-3">
+            <h3 class="text-2xl font-black text-teal-800 tracking-tight mb-3">
               3. Entrega
             </h3>
             <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
               La logística y modalidad de entrega de los regalos a la comunidad estudiantil serán acordadas y coordinadas previamente con la institución, en articulación con las organizaciones aliadas y el equipo de voluntariado.
             </p>
           </div>
-          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2 text-xs font-bold text-amber-800">
-            <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2 text-xs font-bold text-teal-700">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#00D2D3]"></span>
             <span>Articulación directa con sedes locales</span>
           </div>
         </div>
@@ -846,6 +952,34 @@
     <!-- Fondos decorativos sutiles sin saturar -->
     <div class="absolute inset-0 bg-gradient-to-b from-white via-slate-50/50 to-white pointer-events-none"></div>
 
+    <!-- Regalo decorativo flotante lateral derecho (Formulario) -->
+    <div class="absolute right-2 lg:right-6 top-1/4 hidden md:flex flex-col items-center pointer-events-none select-none z-10 animate-float opacity-80 hover:opacity-100 transition-opacity">
+      <div class="relative w-14 h-14 lg:w-16 lg:h-16 drop-shadow-xl">
+        <div class="absolute inset-0 bg-[#0052FF]/20 rounded-full blur-xl"></div>
+        <svg viewBox="0 0 80 80" class="w-full h-full relative" fill="none">
+          <defs>
+            <linearGradient id="formGiftBox" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#0052FF" />
+              <stop offset="100%" stop-color="#0038B8" />
+            </linearGradient>
+            <linearGradient id="formRibbon" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#00D2D3" />
+              <stop offset="100%" stop-color="#009EA0" />
+            </linearGradient>
+          </defs>
+          <ellipse cx="40" cy="74" rx="24" ry="4.5" fill="#0f172a" fill-opacity="0.08" />
+          <rect x="15" y="28" width="50" height="42" rx="10" fill="url(#formGiftBox)" />
+          <rect x="11" y="21" width="58" height="11" rx="4" fill="#0038B8" />
+          <rect x="36" y="21" width="8" height="49" fill="url(#formRibbon)" />
+          <rect x="15" y="44" width="50" height="8" fill="url(#formRibbon)" />
+          <path d="M 40 21 C 32 10, 22 10, 24 18 C 26 23, 36 22, 40 21 Z" fill="url(#formRibbon)" />
+          <path d="M 40 21 C 48 10, 58 10, 56 18 C 54 23, 44 22, 40 21 Z" fill="url(#formRibbon)" />
+          <circle cx="40" cy="21" r="3" fill="#ffffff" />
+        </svg>
+      </div>
+      <div class="w-1.5 h-1.5 rounded-full bg-[#00D2D3] mt-2 opacity-60"></div>
+    </div>
+
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Encabezado Profesional -->
@@ -897,7 +1031,7 @@
           (click)="setTab('voluntario')" 
           class="flex items-center justify-center gap-2 py-3 px-3 rounded-xl font-bold text-xs sm:text-sm transition-all cursor-pointer text-center"
           [class.bg-white]="activeTab() === 'voluntario'"
-          [class.text-amber-800]="activeTab() === 'voluntario'"
+          [class.text-teal-700]="activeTab() === 'voluntario'"
           [class.shadow-sm]="activeTab() === 'voluntario'"
           [class.text-slate-600]="activeTab() !== 'voluntario'"
           [class.hover:text-slate-900]="activeTab() !== 'voluntario'"
@@ -1040,11 +1174,23 @@
               class="h-1.5 w-full transition-all duration-300"
               [class.bg-[#0052FF]]="activeTab() === 'donar'"
               [class.bg-[#E6007A]]="activeTab() === 'colegio'"
-              [class.bg-[#FFD600]]="activeTab() === 'voluntario'"
+              [class.bg-[#00D2D3]]="activeTab() === 'voluntario'"
               [class.bg-slate-900]="activeTab() === 'empresa'"
             ></div>
 
         <div class="p-6 sm:p-10">
+
+          <!-- Mensaje de Error en el Envío -->
+          <div *ngIf="submitError()" class="p-4 mb-6 bg-rose-50 border border-rose-200 rounded-2xl text-rose-800 text-xs sm:text-sm flex items-start gap-3 shadow-sm">
+            <svg class="w-5 h-5 shrink-0 text-rose-600 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+            <div class="flex-1">
+              <strong class="font-bold">Aviso en el envío:</strong>
+              <p class="mt-0.5">{{ submitError() }}</p>
+            </div>
+            <button type="button" (click)="submitError.set(null)" class="text-rose-500 hover:text-rose-700 text-base font-bold cursor-pointer">×</button>
+          </div>
 
           <!-- Estado de Éxito al Enviar -->
           <div *ngIf="formSubmitted()" class="text-center py-10 space-y-4">
@@ -1185,11 +1331,15 @@
 
               <button 
                 type="submit" 
-                [disabled]="!formDonar.name || !formDonar.email || !formDonar.phone"
+                [disabled]="isSubmitting() || !formDonar.name || !formDonar.email || !formDonar.phone"
                 class="w-full py-4 rounded-xl font-bold text-base text-white bg-[#0052FF] hover:bg-[#0038B8] transition-colors shadow-md disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer flex items-center justify-center gap-2"
               >
-                <span>Registrar Donación de Regalos</span>
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                <span *ngIf="!isSubmitting()">Registrar Donación de Regalos</span>
+                <span *ngIf="isSubmitting()" class="flex items-center gap-2">
+                  <svg class="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path></svg>
+                  Enviando información a SELAH...
+                </span>
+                <svg *ngIf="!isSubmitting()" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
               </button>
             </form>
           </div>
@@ -1327,11 +1477,15 @@
 
               <button 
                 type="submit" 
-                [disabled]="!formColegio.institutionName || !formColegio.contactPerson || !formColegio.email || !formColegio.phone"
+                [disabled]="isSubmitting() || !formColegio.institutionName || !formColegio.contactPerson || !formColegio.email || !formColegio.phone"
                 class="w-full py-4 rounded-xl font-bold text-base text-white bg-[#E6007A] hover:bg-[#c20067] transition-colors shadow-md disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer flex items-center justify-center gap-2"
               >
-                <span>Inscribir Alianza con Colegio</span>
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                <span *ngIf="!isSubmitting()">Inscribir Alianza con Colegio</span>
+                <span *ngIf="isSubmitting()" class="flex items-center gap-2">
+                  <svg class="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path></svg>
+                  Enviando datos a SELAH...
+                </span>
+                <svg *ngIf="!isSubmitting()" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
               </button>
             </form>
           </div>
@@ -1353,7 +1507,7 @@
                     name="vol_name" 
                     required 
                     placeholder="Ej. Juan Esteban Silva"
-                    class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#FFD600]/50 focus:border-amber-400"
+                    class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#00D2D3]/40 focus:border-[#00D2D3]"
                   />
                 </div>
                 <div>
@@ -1363,7 +1517,7 @@
                     [(ngModel)]="formVoluntario.age" 
                     name="vol_age" 
                     placeholder="Ej. 24"
-                    class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#FFD600]/50 focus:border-amber-400"
+                    class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#00D2D3]/40 focus:border-[#00D2D3]"
                   />
                 </div>
               </div>
@@ -1376,7 +1530,7 @@
                     [(ngModel)]="formVoluntario.documentNumber" 
                     name="vol_doc" 
                     placeholder="C.C. o T.I."
-                    class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#FFD600]/50 focus:border-amber-400"
+                    class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#00D2D3]/40 focus:border-[#00D2D3]"
                   />
                 </div>
                 <div>
@@ -1387,7 +1541,7 @@
                     name="vol_email" 
                     required 
                     placeholder="juan.silva@correo.com"
-                    class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#FFD600]/50 focus:border-amber-400"
+                    class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#00D2D3]/40 focus:border-[#00D2D3]"
                   />
                 </div>
                 <div>
@@ -1398,7 +1552,7 @@
                     name="vol_phone" 
                     required 
                     placeholder="315 222 3344"
-                    class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#FFD600]/50 focus:border-amber-400"
+                    class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#00D2D3]/40 focus:border-[#00D2D3]"
                   />
                 </div>
               </div>
@@ -1409,7 +1563,7 @@
                   <select 
                     [(ngModel)]="formVoluntario.municipality" 
                     name="vol_muni" 
-                    class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#FFD600]/50 focus:border-amber-400"
+                    class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#00D2D3]/40 focus:border-[#00D2D3]"
                   >
                     <option value="funza">Funza</option>
                     <option value="mosquera">Mosquera</option>
@@ -1421,7 +1575,7 @@
                   <select 
                     [(ngModel)]="formVoluntario.areaInterest" 
                     name="vol_area" 
-                    class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#FFD600]/50 focus:border-amber-400"
+                    class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#00D2D3]/40 focus:border-[#00D2D3]"
                   >
                     <option value="clasificacion_empaque">Clasificación y empaque artesanal</option>
                     <option value="logistica_transporte">Logística y transporte de paquetes</option>
@@ -1434,7 +1588,7 @@
                   <select 
                     [(ngModel)]="formVoluntario.availability" 
                     name="vol_avail" 
-                    class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#FFD600]/50 focus:border-amber-400"
+                    class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#00D2D3]/40 focus:border-[#00D2D3]"
                   >
                     <option value="fines_semana">Fines de semana completos</option>
                     <option value="sabados">Solo sábados</option>
@@ -1453,7 +1607,7 @@
                     [(ngModel)]="formVoluntario.priorExperience" 
                     name="vol_exp" 
                     placeholder="Ej. Cruz Roja, grupos juveniles, scouts..."
-                    class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#FFD600]/50 focus:border-amber-400"
+                    class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#00D2D3]/40 focus:border-[#00D2D3]"
                   />
                 </div>
                 <div>
@@ -1463,18 +1617,22 @@
                     [(ngModel)]="formVoluntario.healthObservations" 
                     name="vol_health" 
                     placeholder="Alergias, restricciones de peso o requerimientos especiales"
-                    class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#FFD600]/50 focus:border-amber-400"
+                    class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#00D2D3]/40 focus:border-[#00D2D3]"
                   />
                 </div>
               </div>
 
               <button 
                 type="submit" 
-                [disabled]="!formVoluntario.fullName || !formVoluntario.email || !formVoluntario.phone"
-                class="w-full py-4 rounded-xl font-bold text-base text-slate-900 bg-[#FFD600] hover:bg-[#e6c100] transition-colors shadow-md disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer flex items-center justify-center gap-2"
+                [disabled]="isSubmitting() || !formVoluntario.fullName || !formVoluntario.email || !formVoluntario.phone"
+                class="w-full py-4 rounded-xl font-bold text-base text-slate-900 bg-[#00D2D3] hover:bg-[#00b8b9] transition-colors shadow-md disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer flex items-center justify-center gap-2"
               >
-                <span>Enviar Postulación como Voluntario</span>
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                <span *ngIf="!isSubmitting()">Enviar Postulación como Voluntario</span>
+                <span *ngIf="isSubmitting()" class="flex items-center gap-2">
+                  <svg class="animate-spin h-5 w-5 text-slate-900" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path></svg>
+                  Registrando voluntario en SELAH...
+                </span>
+                <svg *ngIf="!isSubmitting()" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
               </button>
             </form>
           </div>
@@ -1614,11 +1772,15 @@
 
               <button 
                 type="submit" 
-                [disabled]="!formEmpresa.companyName || !formEmpresa.contactPerson || !formEmpresa.email || !formEmpresa.phone"
+                [disabled]="isSubmitting() || !formEmpresa.companyName || !formEmpresa.contactPerson || !formEmpresa.email || !formEmpresa.phone"
                 class="w-full py-4 rounded-xl font-bold text-base text-white bg-slate-900 hover:bg-slate-800 transition-colors shadow-md disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer flex items-center justify-center gap-2"
               >
-                <span>Registrar Alianza Corporativa</span>
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                <span *ngIf="!isSubmitting()">Registrar Alianza Corporativa</span>
+                <span *ngIf="isSubmitting()" class="flex items-center gap-2">
+                  <svg class="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path></svg>
+                  Enviando propuesta a SELAH...
+                </span>
+                <svg *ngIf="!isSubmitting()" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
               </button>
             </form>
           </div>
